@@ -26,7 +26,7 @@ The programming interface provided by this component draws its inspiration from 
 
 ## Semantics
 
-A chain holds a collection of middlewares, and iterates over them as a treatment is handled.
+A *chain* holds a collection of middlewares, and iterates over them as a treatment is handled.
 
 A *middleware* is a software component that handles an `input`, decides whether it can handle it, and if it does, produces an `output`. If a middleware cannot handle an input, the next middleware in the chain is called.
 
