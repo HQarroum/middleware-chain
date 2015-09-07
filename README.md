@@ -26,6 +26,14 @@ I find the [chain of responsibility](https://en.wikipedia.org/wiki/Chain-of-resp
 
 The programming interface provided by this component draws its inspiration from the [Express framework](http://expressjs.com/), in which [`routers` and `middlewares`](http://expressjs.com/guide/using-middleware.html) are in charge of treating received requests.
 
+## Semantics
+
+A chain holds a collection of middlewares, and iterates over them as a treatment is handled.
+
+A *middleware* is a software component that handles an `input`, decides whether it can handle it, and if it does, produces an `output`. If a middleware cannot handle an input, the next middleware in the chain is called.
+
+What an input and an output concretely are, is dependant on the implementation, and the client of the library will have to provide them. But globally, their semantics must *not* change in order to keep an appropriate logic.
+
 ## Usage
 
 ### Creating a chain
@@ -35,14 +43,6 @@ Creating a middleware chain is as simple as calling its constructor. A new insta
 ```javascript
 var chain = new Chain();
 ```
-
-### Semantics
-
-A middleware is a software component that handles an `input`, decides whether it can handle it, and if it does, produces an `output`. If a middleware cannot handle an input, the next middleware in the chain is called.
-
-What an input and an output concretely is, is dependant on the implementation, and the client of the library will have to provide them. But globally, their semantics must *not* change in order to keep an appropriate logic.
-
-A chain *contains* a collection of middlewares, and iterates over them as a treatment is handled.
 
 ### Adding middlewares
 
