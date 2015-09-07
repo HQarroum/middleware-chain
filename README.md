@@ -71,19 +71,7 @@ chain.use([
 ]);
 ```
 
-Similarly, you can push many middlewares by simply passing them in the argument list of `.use`.
-
-```javascript
-chain.use(
-  function (input, output, next) {
-    next();
-  },
-    
-  function (input, output, next) {
-    next();
-  }
-);
-```
+> Similarly, you can push many middlewares by simply passing them in the argument list of `.use`.
 
 ### Middleware lifecycle
 
