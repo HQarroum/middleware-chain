@@ -89,3 +89,33 @@ chain.use(function (input, output, next) {
   output.write(input.data());
 });
 ```
+
+### Error handlers
+
+Sometimes it is useful to signal that an error occurred along the chain and to have an approriate handler gracefully taking care of it. As such, it is possible to insert error handlers in the chain and to signal an error in the middlewares.
+
+```javascript
+// A regular middleware can trigger an `Error`
+// object by passing it to the next function.
+chain.use(function (input, output, next) {
+  next(new Error('An error occurred');
+});
+
+// An event handler can be recognized because he
+// declares one more argument in its argument list.
+chain.use(function (err, input, output, next) {
+  // Handle the error, or forward it to another error
+  // handler using `next`.
+});
+```
+
+> Once an `Error` has been triggerred by a middleware, the next error callbacl will be called right away, and subsequent regular middleware will *not* be called in this case. If no error handlers are declared, the chain processing is stopped.
+### Triggerring the chain
+
+In order to start the chain and process the input, you need to call the `.handle` method. It needs two arguments, being respectively the input and the output.
+
+```javascript
+// In this example, we pass to the middleware
+// chain an input stream, and an output stream.
+chain.handle({ stream: input }, { stream: output });
+```
