@@ -1,3 +1,5 @@
+![Logo](assets/dna.png)
+
 # middleware-chain
 
 A middleware chain component for Node.js.
