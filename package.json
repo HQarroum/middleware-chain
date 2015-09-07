@@ -20,5 +20,11 @@
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/HQarroum/middleware-chain/issues"
+  },
+  "dependencies": {
+    "lodash": "^3.10.1"
+  },
+  "devDependencies": {
+    "mocha": "^2.3.1"
   }
 }
