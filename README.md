@@ -36,12 +36,19 @@ Creating a middleware chain is as simple as calling its constructor. A new insta
 var chain = new Chain();
 ```
 
+### Semantics
+
+A middleware is a software component that handles an `input`, decides whether it can handle it, and if it does, produces an `output`. If a middleware cannot handle an input, the next middleware in the chain is called.
+
+What an input and an output concretely is, is dependant on the implementation, and the client of the library will have to provide them. But globally, their semantics must *not* change in order to keep an appropriate logic.
+
+A chain *contains* a collection of middlewares, and iterates over them as a treatment is handled.
+
 ### Adding middlewares
 
 You will then be able to push new middlewares in the chain using the `.use` method.
 
 ```javascript
-// Pushing a new function middleware.
 chain.use(function (input, output, next) {
   // Perform some treatment.
   next();
@@ -78,4 +85,21 @@ chain.use(
     next();
   }
 );
+```
+
+### Middleware lifecycle
+
+When a middleware is called in the chain, it can handle an input, and interact with the output. If the middleware cannot handle the given input, it should call the next middleware in the chain.
+
+```javascript
+chain.use(function (input, output, next) {
+  if (isNotHandled(input)) {
+    // Calling the next middleware.
+    return next();
+  }
+  // Otherwise, we treat the input.
+  // In this example we "pipe" the input
+  // with the output.
+  output.write(input.data());
+});
 ```
