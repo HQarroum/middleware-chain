@@ -20,7 +20,9 @@ $ bower install --save middleware-chain
 
 ## Motivations
 
-I find the [chain of responsibility](https://en.wikipedia.org/wiki/Chain-of-responsibility_pattern) pattern to be pretty useful in a lot of components I write. It allows to separate responsibilities in the form of pluggable handlers along a processing chain which decouples the treatments made on the chain. It also makes hotplugging of new treatments while the application is running possible, and exposes a clean and evolutive interface.
+I find the [chain of responsibility](https://en.wikipedia.org/wiki/Chain-of-responsibility_pattern) pattern to be pretty useful in a lot of components I write. It allows to separate responsibilities in the form of pluggable handlers along a processing chain which decouples the treatments made on the chain, while having the ability to declare in which order they will be executed.
+
+It also makes hot-plugging of new treatments possible while the application is running, and exposes a clean and evolutive interface.
 
 The programming interface provided by this component draws its inspiration from the [Express framework](http://expressjs.com/), in which [`routers` and `middlewares`](http://expressjs.com/guide/using-middleware.html) are in charge of treating received requests.
 
@@ -28,9 +30,9 @@ The programming interface provided by this component draws its inspiration from 
 
 A *chain* holds a collection of middlewares, and iterates over them as a treatment is handled.
 
-A *middleware* is a software component that handles an `input`, decides whether it can handle it, and if it does, produces an `output`. If a middleware cannot handle an input, the next middleware in the chain is called.
+A *middleware* is a software component that handles an `input`, decides whether it can handle it, and if it does, will execute a particular routine (e.g producing an `output`). If a middleware cannot handle an input, the next middleware in the chain is called.
 
-What an input and an output concretely are, is dependant on the implementation, and the client of the library will have to provide them. But globally, their semantics must *not* change in order to keep an appropriate logic.
+What an input and an output concretely are, is dependant on the implementation, and the client of the library will have to provide them. However, in order to keep an appropriate logic, their semantics should *not* change.
 
 ## Usage
 
