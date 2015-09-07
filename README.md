@@ -22,19 +22,25 @@ $ bower install --save middleware-chain
 
 ## Motivations
 
-I found the [chain of responsibility](https://en.wikipedia.org/wiki/Chain-of-responsibility_pattern) pattern to be pretty useful in a lot of components I write. Allowing to separate responsibilities in the form of pluggable handlers along a processing chain allows to decouple the treatments made on the chain (pushing middlewares and interceptors), to hotplug new treatments while the application is running and expose a clean and evolutive interface.
+I find the [chain of responsibility](https://en.wikipedia.org/wiki/Chain-of-responsibility_pattern) pattern to be pretty useful in a lot of components I write. It allows to separate responsibilities in the form of pluggable handlers along a processing chain which decouples the treatments made on the chain. It also makes hotplugging of new treatments while the application is running possible, and exposes a clean and evolutive interface.
 
-The programming interface provided by this component draws its inspiration from the Express framework, in which Router and Middleware are in charge of treating received requests.
+The programming interface provided by this component draws its inspiration from the [Express framework](http://expressjs.com/), in which [`routers` and `middlewares`](http://expressjs.com/guide/using-middleware.html) are in charge of treating received requests.
 
 ## Usage
 
 ### Creating a chain
 
-Creating a middleware chain is as simple as calling its constructor. You will then be able to push new middlewares in the chain using the `.use` method.
+Creating a middleware chain is as simple as calling its constructor. A new instance does not contain any middleware.
 
 ```javascript
 var chain = new Chain();
+```
 
+### Adding middlewares
+
+You will then be able to push new middlewares in the chain using the `.use` method.
+
+```javascript
 // Pushing a new function middleware.
 chain.use(function (input, output, next) {
   next();
@@ -55,4 +61,20 @@ chain.use([
         next();
     }
 ]);
+```
+
+Or by simply passing multiple middlewares in the argument list.
+
+```javascript
+chain.use(
+  function (input, output, next) {
+    console.log('foo');
+    next();
+  },
+    
+  function (input, output, next) {
+    console.log('bar');
+    next();
+  }
+);
 ```
