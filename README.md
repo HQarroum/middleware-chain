@@ -110,6 +110,7 @@ chain.use(function (err, input, output, next) {
 ```
 
 > Once an `Error` has been triggerred by a middleware, the next error callbacl will be called right away, and subsequent regular middleware will *not* be called in this case. If no error handlers are declared, the chain processing is stopped.
+
 ### Triggerring the chain
 
 In order to start the chain and process the input, you need to call the `.handle` method. It needs two arguments, being respectively the input and the output.
