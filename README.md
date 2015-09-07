@@ -26,7 +26,7 @@ The programming interface provided by this component draws its inspiration from 
 
 ## Semantics
 
-A chain holds a collection of middlewares, and iterates over them as a treatment is handled.
+A *chain* holds a collection of middlewares, and iterates over them as a treatment is handled.
 
 A *middleware* is a software component that handles an `input`, decides whether it can handle it, and if it does, produces an `output`. If a middleware cannot handle an input, the next middleware in the chain is called.
 
@@ -71,19 +71,7 @@ chain.use([
 ]);
 ```
 
-Similarly, you can push many middlewares by simply passing them in the argument list of `.use`.
-
-```javascript
-chain.use(
-  function (input, output, next) {
-    next();
-  },
-    
-  function (input, output, next) {
-    next();
-  }
-);
-```
+> Similarly, you can push many middlewares by simply passing them in the argument list of `.use`.
 
 ### Middleware lifecycle
 
@@ -100,4 +88,35 @@ chain.use(function (input, output, next) {
   // with the output.
   output.write(input.data());
 });
+```
+
+### Error handlers
+
+Sometimes it is useful to signal that an error occurred along the chain and to have an approriate handler gracefully taking care of it. As such, it is possible to insert error handlers in the chain and to signal an error in the middlewares.
+
+```javascript
+// A regular middleware can trigger an `Error`
+// object by passing it to the next function.
+chain.use(function (input, output, next) {
+  next(new Error('An error occurred');
+});
+
+// An event handler can be recognized because he
+// declares one more argument in its argument list.
+chain.use(function (err, input, output, next) {
+  // Handle the error, or forward it to another error
+  // handler using `next`.
+});
+```
+
+> Once an `Error` has been triggerred by a middleware, the next error callbacl will be called right away, and subsequent regular middleware will *not* be called in this case. If no error handlers are declared, the chain processing is stopped.
+
+### Triggerring the chain
+
+In order to start the chain and process the input, you need to call the `.handle` method. It needs two arguments, being respectively the input and the output.
+
+```javascript
+// In this example, we pass to the middleware
+// chain an input stream, and an output stream.
+chain.handle({ stream: input }, { stream: output });
 ```
