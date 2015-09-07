@@ -89,7 +89,21 @@ chain.use(function (input, output, next) {
   // Otherwise, we treat the input.
   // In this example we "pipe" the input
   // with the output.
-  output.write(input.data());
+  input.stream.pipe(output.stream);
+});
+```
+
+### Interrupting the chain
+
+When a middleware wants to skip the rest of the available middlewares, for instance because the input should be ignored, it can call the `.next` method with the `middleware` string.
+
+```javascript
+chain.use(function (input, output, next) {
+  if (!input.stream.hasBytes()) {
+    // This will cause the middleware
+    // chain to break.
+    next('middleware');
+  }
 });
 ```
 
