@@ -43,37 +43,38 @@ You will then be able to push new middlewares in the chain using the `.use` meth
 ```javascript
 // Pushing a new function middleware.
 chain.use(function (input, output, next) {
+  // Perform some treatment.
   next();
 });
 ```
 
-It is also possible to push many middlewares at once using an array.
+It is also possible to push many middlewares at once using an array, which comes in handy when grouping a particular set of actions together.
 
 ```javascript
 chain.use([
     function (input, output, next) {
-        console.log('foo');
+        // Verify for instance that the
+        // `input` is correctly formatted.
         next();
     },
     
     function (input, output, next) {
-        console.log('bar');
+        // Perform some treatment on
+        // the `input`.
         next();
     }
 ]);
 ```
 
-Or by simply passing multiple middlewares in the argument list.
+Similarly, you can push many middlewares by simply passing them in the argument list of `.use`.
 
 ```javascript
 chain.use(
   function (input, output, next) {
-    console.log('foo');
     next();
   },
     
   function (input, output, next) {
-    console.log('bar');
     next();
   }
 );
