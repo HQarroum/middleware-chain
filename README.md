@@ -1,4 +1,4 @@
-# middleware-chain
+# middleware-chain [![Build Status](https://travis-ci.org/HQarroum/middleware-chain.svg?branch=master)](https://travis-ci.org/HQarroum/Fsm)
 
 A middleware chain component for Node.js.
 
