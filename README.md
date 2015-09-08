@@ -9,11 +9,13 @@ Lead Maintainer: [Halim Qarroum](mailto:hqarroum@awox.com)
 
 ## Install
 
-Only 0.5 kB Gzipped.
+##### Using NPM
 
 ```sh
 $ npm install --save middleware-chain
 ```
+
+##### Using Bower
 
 ```sh
 $ bower install --save middleware-chain
