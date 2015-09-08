@@ -82,7 +82,7 @@ When a middleware is called in the chain, it can handle an input, and interact w
 
 ```javascript
 chain.use(function (input, output, next) {
-  if (isNotHandled(input)) {
+  if (!handled(input)) {
     // Calling the next middleware.
     return next();
   }
@@ -99,7 +99,7 @@ When a middleware wants to skip the rest of the available middlewares, for insta
 
 ```javascript
 chain.use(function (input, output, next) {
-  if (!input.stream.hasBytes()) {
+  if (input.stream.empty()) {
     // This will cause the middleware
     // chain to break.
     next('middleware');
