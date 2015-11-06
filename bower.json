@@ -1,0 +1,30 @@
+{
+  "name": "middleware-chain",
+  "version": "1.0.0",
+  "homepage": "https://github.com/HQarroum/middleware-chain",
+  "authors": [
+    "Halim Qarroum <hqm.post@gmail.com>"
+  ],
+  "description": "A middleware chain component for Node.js and the browser",
+  "main": "lib/index.js",
+  "moduleType": [
+    "amd",
+    "globals",
+    "node"
+  ],
+  "keywords": [
+    "middleware",
+    "chain"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "lodash": "~3.10.1"
+  }
+}

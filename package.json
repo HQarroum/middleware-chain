@@ -1,7 +1,7 @@
 {
   "name": "middleware-chain",
   "version": "1.0.0",
-  "description": "A middleware chain component for Node.js",
+  "description": "A middleware chain component for Node.js and the browser",
   "main": "lib/index.js",
   "scripts": {
     "test": "mocha tests/middleware-chain-spec.js"
