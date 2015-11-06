@@ -26,8 +26,7 @@ describe('The middleware chain', function () {
     chain.use(function (input, output, next) {
       ++i;
       next();
-    });
-    chain.use(function () {
+    }).use(function () {
       ++i;
     });
     chain.handle({}, {});
@@ -40,8 +39,7 @@ describe('The middleware chain', function () {
     chain.use(function (input, output, next) {
       ++i;
       next('middleware');
-    });
-    chain.use(function () {
+    }).use(function () {
       ++i;
     });
     chain.handle({}, {});
@@ -54,18 +52,14 @@ describe('The middleware chain', function () {
     chain.use(function (input, output, next) {
       ++i;
       next(new Error());
-    });
-    chain.use(function () {
+    }).use(function () {
       ++i;
-    });
-    chain.use(function (err, input, output, next) {
+    }).use(function (err, input, output, next) {
       ++i;
       next();
-    });
-    chain.use(function (err, input, output, next) {
+    }).use(function (err, input, output, next) {
       ++i;
-    });
-    chain.handle({}, {});
+    }).handle({}, {});
     i.should.be.exactly(3);
     chain.errorChain.length.should.be.exactly(2);
   });
