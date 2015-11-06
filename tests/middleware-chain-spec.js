@@ -3,7 +3,7 @@ var Chain = require('../lib');
 
 describe('The middleware chain', function () {
 
-  var chain = undefined;
+  var chain;
 
   beforeEach(function () {
     chain = new Chain();
@@ -24,10 +24,11 @@ describe('The middleware chain', function () {
     var i = 0;
 
     chain.use(function (input, output, next) {
-      ++i, next();
+      ++i;
+      next();
     });
     chain.use(function () {
-      ++i
+      ++i;
     });
     chain.handle({}, {});
     i.should.be.exactly(2);
@@ -37,10 +38,11 @@ describe('The middleware chain', function () {
     var i = 0;
 
     chain.use(function (input, output, next) {
-      ++i, next('middleware');
+      ++i;
+      next('middleware');
     });
     chain.use(function () {
-      ++i
+      ++i;
     });
     chain.handle({}, {});
     i.should.be.exactly(1);
@@ -50,16 +52,18 @@ describe('The middleware chain', function () {
     var i = 0;
 
     chain.use(function (input, output, next) {
-      ++i, next(new Error());
+      ++i;
+      next(new Error());
     });
     chain.use(function () {
-      ++i
+      ++i;
     });
     chain.use(function (err, input, output, next) {
-      ++i, next();
+      ++i;
+      next();
     });
     chain.use(function (err, input, output, next) {
-      ++i
+      ++i;
     });
     chain.handle({}, {});
     i.should.be.exactly(3);
