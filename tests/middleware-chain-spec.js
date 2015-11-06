@@ -2,25 +2,45 @@ var should = require('should');
 var Chain = require('../lib');
 
 describe('The middleware chain', function () {
-
   var chain;
 
+  /**
+   * On each test, we create a new chain.
+   */
   beforeEach(function () {
     chain = new Chain();
   });
 
-  it('should be able to be instantiated while keeping a coherent state', function () {
+  it('should present a coherent state at instantiation', function () {
     chain.chain.should.be.empty();
     chain.errorChain.should.be.empty();
   });
 
-  it('should be able to carry new middlewares', function () {
+  it('should be able to carry new middleware', function () {
     chain.use(function () {});
     chain.chain.length.should.be.exactly(1);
     chain.errorChain.should.be.empty();
   });
 
-  it('should be able to trigger previously inserted middlewares', function () {
+  it('should not carry invalid values', function () {
+    chain.use(function () {})
+        .use(null)
+        .use(false)
+        .use(0);
+    chain.chain.length.should.be.exactly(1);
+    chain.errorChain.should.be.empty();
+  });
+
+  it('should allow middleware insertion using arrays', function () {
+    chain.use([
+        function () {},
+        function (e, i, o, n) {}
+    ]).use(function () {});
+    chain.chain.length.should.be.exactly(2);
+    chain.errorChain.length.should.be.exactly(1);
+  });
+
+  it('should be able to trigger previously inserted middleware', function () {
     var i = 0;
 
     chain.use(function (input, output, next) {
