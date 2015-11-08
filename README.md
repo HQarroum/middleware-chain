@@ -33,7 +33,7 @@ The programming interface provided by this component draws its inspiration from 
 
 A *chain* holds a collection of middlewares, and iterates over them as a treatment is handled.
 
-A *middleware* is a software component that handles an `input`, decides whether it can handle it, and if it does, will execute a particular routine (e.g producing an `output`). If a middleware cannot handle an input, the next middleware in the chain is called.
+A *middleware* is a software component that handles an `input`, decides whether it can handle it, and if it does, will execute a particular routine producing an `output`. If a middleware cannot handle an input, the next middleware in the chain is called.
 
 What an input and an output concretely are, is dependant on the implementation, and the client of the library will have to provide them. However, in order to keep an appropriate logic, their semantics should *not* change.
 
