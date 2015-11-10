@@ -5,7 +5,7 @@
   "authors": [
     "Halim Qarroum <hqm.post@gmail.com>"
   ],
-  "description": "A middleware chain component for Node.js and the browser",
+  "description": "A middleware chain component for node and the browser",
   "main": "lib/index.js",
   "moduleType": [
     "amd",
