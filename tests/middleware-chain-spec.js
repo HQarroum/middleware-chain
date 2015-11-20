@@ -53,19 +53,6 @@ describe('The middleware chain', function () {
     i.should.be.exactly(2);
   });
 
-  it('should be able to break the chain', function () {
-    var i = 0;
-
-    chain.use(function (input, output, next) {
-      ++i;
-      next('middleware');
-    }).use(function () {
-      ++i;
-    });
-    chain.handle({}, {});
-    i.should.be.exactly(1);
-  });
-
   it('should be able to gracefully handle errors', function () {
     var i = 0;
 
