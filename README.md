@@ -5,7 +5,7 @@ A middleware chain component for Node and the browser.
 
 Current version: **1.0.0**
 
-Lead Maintainer: [Halim Qarroum](mailto:hqarroum@awox.com)
+Lead Maintainer: [Halim Qarroum](mailto:hqm.post@gmail.com)
 
 ## Install
 
