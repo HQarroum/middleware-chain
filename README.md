@@ -3,7 +3,7 @@
 
 A middleware chain component for Node and the browser.
 
-Current version: **1.0.0**
+Current version: **1.0.1**
 
 Lead Maintainer: [Halim Qarroum](mailto:hqm.post@gmail.com)
 
