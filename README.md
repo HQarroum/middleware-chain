@@ -95,20 +95,6 @@ chain.use(function (input, output, next) {
 });
 ```
 
-### Interrupting the chain
-
-When a middleware wants to skip the rest of the available middlewares, for instance because the input should be ignored, it can call the `.next` method with the `middleware` string.
-
-```javascript
-chain.use(function (input, output, next) {
-  if (input.stream.empty()) {
-    // This will cause the middleware
-    // chain to break.
-    next('middleware');
-  }
-});
-```
-
 ### Error handlers
 
 Sometimes it is useful to signal that an error occurred along the chain and to have an approriate handler gracefully taking care of it. As such, it is possible to insert error handlers in the chain and to signal an error in a middleware.
