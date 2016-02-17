@@ -12,7 +12,7 @@ Lead Maintainer: [Halim Qarroum](mailto:hqm.post@gmail.com)
 ##### Using NPM
 
 ```sh
-$ npm install --save middleware-chain
+$ npm install --save middleware-chain-js
 ```
 
 ##### Using Bower
