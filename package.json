@@ -1,6 +1,6 @@
 {
   "name": "middleware-chain-js",
-  "version": "1.0.5",
+  "version": "1.0.6",
   "description": "A middleware chain component for node and the browser",
   "main": "lib/index.js",
   "scripts": {

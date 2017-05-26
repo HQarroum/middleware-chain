@@ -4,7 +4,7 @@
 [![Build Status](https://travis-ci.org/HQarroum/middleware-chain.svg?branch=master)](https://travis-ci.org/HQarroum/middleware-chain)
 [![Code Climate](https://codeclimate.com/repos/55edafae69568006cf007c34/badges/cb599bae40767f430845/gpa.svg)](https://codeclimate.com/repos/55edafae69568006cf007c34/feed)
 
-Current version: **1.0.5**
+Current version: **1.0.6**
 
 Lead Maintainer: [Halim Qarroum](mailto:hqm.post@gmail.com)
 
@@ -68,7 +68,7 @@ chain.use([
         // `input` is correctly formatted.
         next();
     },
-    
+
     function (input, output, next) {
         // Perform some treatment on
         // the `input`.
