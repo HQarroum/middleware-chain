@@ -23,7 +23,7 @@
     "url": "https://github.com/HQarroum/middleware-chain/issues"
   },
   "dependencies": {
-    "lodash": "^3.10.1"
+    "lodash": "^4.17.4"
   },
   "devDependencies": {
     "grunt": "^0.4.5",
