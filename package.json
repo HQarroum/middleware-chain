@@ -4,7 +4,9 @@
   "description": "A middleware chain component for node and the browser",
   "main": "lib/index.js",
   "scripts": {
-    "test": "mocha tests/middleware-chain-spec.js"
+    "test": "grunt test",
+    "build": "grunt",
+    "prepublish": "npm run build"
   },
   "repository": {
     "type": "git",
@@ -13,7 +15,6 @@
   "keywords": [
     "middleware",
     "chain",
-    "of",
     "responsibility"
   ],
   "author": "Halim Qarroum",
