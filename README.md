@@ -1,4 +1,6 @@
 # middleware-chain
+
+[![Greenkeeper badge](https://badges.greenkeeper.io/HQarroum/middleware-chain.svg)](https://greenkeeper.io/)
 > A middleware chain component for Node and the browser.
 
 [![Build Status](https://travis-ci.org/HQarroum/middleware-chain.svg?branch=master)](https://travis-ci.org/HQarroum/middleware-chain)
