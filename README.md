@@ -24,11 +24,11 @@ $ bower install --save middleware-chain
 
 ## Motivations
 
-I find the [chain of responsibility](https://en.wikipedia.org/wiki/Chain-of-responsibility_pattern) pattern to be pretty useful in a lot of components I write. It allows to separate responsibilities in the form of pluggable handlers along a processing chain which decouples the treatments made on the chain, while having the ability to declare in which order they will be executed.
+The [chain of responsibility](https://en.wikipedia.org/wiki/Chain-of-responsibility_pattern) pattern is pretty useful in a lot of components I write. It allows to separate responsibilities in the form of pluggable handlers along a processing chain which decouples the treatments made on the chain, while having the ability to declare in which order they will be executed.
 
 It also makes hot-plugging of new treatments possible while the application is running, and exposes a clean and evolutive interface.
 
-The programming interface provided by this component draws its inspiration from the [Express framework](http://expressjs.com/), in which [`routers` and `middlewares`](http://expressjs.com/guide/using-middleware.html) are in charge of treating received requests.
+The programming interface provided by this component draws its inspiration from the [Express framework](http://expressjs.com/), in which [`routers` and `middlewares`](http://expressjs.com/guide/using-middleware.html) are in charge of sequentially treating received requests.
 
 ## Semantics
 
@@ -50,7 +50,7 @@ var chain = new Chain();
 
 ### Adding middlewares
 
-You will then be able to push new middlewares in the chain using the `.use` method.
+It is then possible to push new middlewares in the chain using the `.use` method.
 
 ```javascript
 chain.use(function (input, output, next) {
@@ -98,7 +98,7 @@ chain.use(function (input, output, next) {
 
 ### Error handlers
 
-Sometimes it is useful to signal that an error occurred along the chain and to have an approriate handler gracefully taking care of it. As such, it is possible to insert error handlers in the chain and to signal an error in a middleware.
+Sometimes, it is useful to signal that an error occurred along the chain and to have an approriate handler gracefully taking care of it. As such, it is possible to insert error handlers in the chain and to signal an error in a middleware.
 
 ```javascript
 // A regular middleware can trigger an `Error`
@@ -117,7 +117,7 @@ chain.use(function (err, input, output, next) {
 
 > Once an `Error` has been triggered by a middleware, the next error callback will be called right away, and subsequent regular middleware will *not* be called in this case. If no error handlers are declared, the chain processing is stopped.
 
-### Triggerring the chain
+### Triggering the chain
 
 In order to start the chain and process the input, you need to call the `.handle` method. It needs two arguments, being respectively the *input* and the *output*.
 
