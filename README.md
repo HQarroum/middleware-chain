@@ -3,6 +3,7 @@
 
 [![Build Status](https://travis-ci.org/HQarroum/middleware-chain.svg?branch=master)](https://travis-ci.org/HQarroum/middleware-chain)
 [![CodeFactor](https://www.codefactor.io/repository/github/hqarroum/middleware-chain/badge)](https://www.codefactor.io/repository/github/hqarroum/middleware-chain)
+[![FOSSA Status](https://app.fossa.io/api/projects/git%2Bgithub.com%2FHQarroum%2Fmiddleware-chain.svg?type=shield)](https://app.fossa.io/projects/git%2Bgithub.com%2FHQarroum%2Fmiddleware-chain?ref=badge_shield)
 
 Current version: **1.0.8**
 
@@ -126,3 +127,7 @@ In order to start the chain and process the input, you need to call the `.handle
 // chain an input stream, and an output stream.
 chain.handle({ stream: input }, { stream: output });
 ```
+
+
+## License
+[![FOSSA Status](https://app.fossa.io/api/projects/git%2Bgithub.com%2FHQarroum%2Fmiddleware-chain.svg?type=large)](https://app.fossa.io/projects/git%2Bgithub.com%2FHQarroum%2Fmiddleware-chain?ref=badge_large)
