@@ -4,7 +4,7 @@
 [![Build Status](https://travis-ci.org/HQarroum/middleware-chain.svg?branch=master)](https://travis-ci.org/HQarroum/middleware-chain)
 [![CodeFactor](https://www.codefactor.io/repository/github/hqarroum/middleware-chain/badge)](https://www.codefactor.io/repository/github/hqarroum/middleware-chain)
 
-Current version: **1.0.8**
+Current version: **1.0.9**
 
 Lead Maintainer: [Halim Qarroum](mailto:hqm.post@gmail.com)
 
@@ -13,13 +13,7 @@ Lead Maintainer: [Halim Qarroum](mailto:hqm.post@gmail.com)
 ##### Using NPM
 
 ```sh
-$ npm install --save middleware-chain-js
-```
-
-##### Using Bower
-
-```sh
-$ bower install --save middleware-chain
+npm install --save middleware-chain-js
 ```
 
 ## Motivations

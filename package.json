@@ -1,11 +1,11 @@
 {
   "name": "middleware-chain-js",
-  "version": "1.0.8",
+  "version": "1.0.9",
   "description": "A middleware chain component for node and the browser",
   "main": "lib/index.js",
   "scripts": {
-    "test": "grunt test",
-    "build": "grunt",
+    "test": "npx grunt test",
+    "build": "npx grunt",
     "prepublishOnly": "npm run build"
   },
   "repository": {
@@ -23,17 +23,17 @@
     "url": "https://github.com/HQarroum/middleware-chain/issues"
   },
   "dependencies": {
-    "lodash": "^4.17.4"
+    "lodash": "^4.17.21"
   },
   "devDependencies": {
     "grunt": "^1.0.1",
-    "grunt-contrib-clean": "^1.1.0",
-    "grunt-contrib-jshint": "^1.1.0",
-    "grunt-contrib-uglify": "^3.0.1",
+    "grunt-contrib-clean": "^2.0.0",
+    "grunt-contrib-jshint": "^3.0.0",
+    "grunt-contrib-uglify": "^5.0.1",
     "grunt-mocha-test": "^0.13.2",
-    "load-grunt-tasks": "^3.3.0",
-    "mocha": "^4.0.0",
+    "load-grunt-tasks": "^5.1.0",
+    "mocha": "^8.4.0",
     "should": "^13.0.1",
-    "time-grunt": "^1.2.2"
+    "time-grunt": "^2.0.0"
   }
 }
