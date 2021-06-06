@@ -1,11 +1,29 @@
 {
   "name": "middleware-chain-js",
-  "version": "1.0.9",
+  "version": "2.0.0",
   "description": "A middleware chain component for node and the browser",
-  "main": "lib/index.js",
+  "type": "module",
+  "main": "./dist/index.cjs",
+  "module": "./lib/index.js",
+  "exports": {
+    ".": {
+      "import": "./lib/index.js",
+      "require": "./dist/index.cjs"
+    },
+    "./package.json": "./package.json"
+  },
+  "files": [
+    "lib",
+    "dist",
+    "assets",
+    "examples",
+    "tests"
+  ],
   "scripts": {
-    "test": "npx grunt test",
-    "build": "npx grunt",
+    "build": "npx rollup -c",
+    "test": "npx cross-env NODE_OPTIONS=--experimental-vm-modules jest",
+    "coverage": "npx cross-env NODE_OPTIONS=--experimental-vm-modules jest --coverage",
+    "lint": "npx eslint .",
     "prepublishOnly": "npm run build"
   },
   "repository": {
@@ -26,14 +44,10 @@
     "lodash": "^4.17.21"
   },
   "devDependencies": {
-    "grunt": "^1.0.1",
-    "grunt-contrib-clean": "^2.0.0",
-    "grunt-contrib-jshint": "^3.0.0",
-    "grunt-contrib-uglify": "^5.0.1",
-    "grunt-mocha-test": "^0.13.2",
-    "load-grunt-tasks": "^5.1.0",
-    "mocha": "^8.4.0",
-    "should": "^13.0.1",
-    "time-grunt": "^2.0.0"
+    "cross-env": "^7.0.3",
+    "eslint": "^7.28.0",
+    "jest": "^27.0.4",
+    "rollup": "^2.50.6",
+    "rollup-plugin-terser": "^7.0.2"
   }
 }

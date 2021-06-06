@@ -4,15 +4,13 @@
 [![Build Status](https://travis-ci.org/HQarroum/middleware-chain.svg?branch=master)](https://travis-ci.org/HQarroum/middleware-chain)
 [![CodeFactor](https://www.codefactor.io/repository/github/hqarroum/middleware-chain/badge)](https://www.codefactor.io/repository/github/hqarroum/middleware-chain)
 
-Current version: **1.0.9**
+Current version: **2.0.0**
 
 Lead Maintainer: [Halim Qarroum](mailto:hqm.post@gmail.com)
 
 ## Install
 
-##### Using NPM
-
-```sh
+```bash
 npm install --save middleware-chain-js
 ```
 
@@ -33,6 +31,34 @@ A *middleware* is a software component that handles an `input`, decides whether 
 What an input and an output concretely are, is dependant on the implementation, and the client of the library will have to provide them. However, in order to keep an appropriate logic, their semantics should *not* change.
 
 ## Usage
+
+### Requiring the library
+
+The entry point of the library can be required through different means, each one depending on the environment in which the library is executed.
+
+#### ESM
+
+```javascript
+import Chain from 'middleware-chain-js';
+```
+
+#### Common JS
+
+```javascript
+const gravatar = require('middleware-chain-js');
+```
+
+#### Browser (ESM)
+
+```javascript
+import gravatar from 'https://unpkg.com/middleware-chain-js/dist/index.esm.js'
+```
+
+#### Browser (UMD)
+
+```javascript
+<script src="https://unpkg.com/middleware-chain-js/dist/index.umd.js"></script>
+```
 
 ### Creating a chain
 
