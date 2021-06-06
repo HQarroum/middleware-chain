@@ -65,7 +65,7 @@ import gravatar from 'https://unpkg.com/middleware-chain-js/dist/index.esm.js'
 Creating a middleware chain is as simple as calling its constructor. A new instance does not contain any middleware.
 
 ```javascript
-var chain = new Chain();
+const chain = new Chain();
 ```
 
 ### Adding middlewares
