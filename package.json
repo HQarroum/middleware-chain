@@ -1,6 +1,6 @@
 {
   "name": "middleware-chain-js",
-  "version": "2.0.0",
+  "version": "2.0.1",
   "description": "A middleware chain component for node and the browser",
   "type": "module",
   "main": "./dist/index.cjs",

@@ -4,7 +4,7 @@
 [![Build Status](https://travis-ci.org/HQarroum/middleware-chain.svg?branch=master)](https://travis-ci.org/HQarroum/middleware-chain)
 [![CodeFactor](https://www.codefactor.io/repository/github/hqarroum/middleware-chain/badge)](https://www.codefactor.io/repository/github/hqarroum/middleware-chain)
 
-Current version: **2.0.0**
+Current version: **2.0.1**
 
 Lead Maintainer: [Halim Qarroum](mailto:hqm.post@gmail.com)
 
