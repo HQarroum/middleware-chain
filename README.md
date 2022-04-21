@@ -1,7 +1,7 @@
 # middleware-chain
 > A middleware chain component for Node and the Browser.
 
-[![Build Status](https://travis-ci.org/HQarroum/middleware-chain.svg?branch=master)](https://travis-ci.org/HQarroum/middleware-chain)
+[![Build Status](https://app.travis-ci.com/HQarroum/middleware-chain.svg?branch=master)](https://app.travis-ci.com/HQarroum/middleware-chain)
 [![CodeFactor](https://www.codefactor.io/repository/github/hqarroum/middleware-chain/badge)](https://www.codefactor.io/repository/github/hqarroum/middleware-chain)
 
 Current version: **2.0.2**
