@@ -1,6 +1,6 @@
 {
   "name": "middleware-chain-js",
-  "version": "2.0.1",
+  "version": "2.0.2",
   "description": "A middleware chain component for node and the browser",
   "type": "module",
   "main": "./dist/index.cjs",
@@ -45,9 +45,9 @@
   },
   "devDependencies": {
     "cross-env": "^7.0.3",
-    "eslint": "^7.32.0",
+    "eslint": "^8.13.0",
     "jest": "^27.5.1",
-    "rollup": "^2.70.1",
+    "rollup": "^2.70.2",
     "rollup-plugin-terser": "^7.0.2"
   }
 }

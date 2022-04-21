@@ -73,6 +73,24 @@ describe('The middleware chain', () => {
     chain.handle({}, {});
   });
 
+  test('should be able to allow asynchronous functions', (done) => {
+    chain
+      .use((input, output, next) => {
+        input.foo = 'bar';
+        next();
+      })
+      .use(async (input, output, next) => {
+        output.foo = 'bar';
+        next();
+      })
+      .use((input, output) => {
+        expect(input).toEqual({ foo: 'bar' });
+        expect(output).toEqual({ foo: 'bar' });
+        done();
+      });
+    chain.handle({}, {});
+  });
+
   test('should be able to gracefully handle errors', () => {
     let i = 0;
 
@@ -89,5 +107,25 @@ describe('The middleware chain', () => {
     }).handle({}, {});
     expect(i).toEqual(3);
     expect(chain.errorChain.length).toEqual(2);
+  });
+
+  test('should be able to handle exceptions', () => {
+    let i = 0;
+    let error = null;
+
+    chain.use(function (input, output, next) {
+      ++i;
+      throw new Error('foo');
+    }).use(() => {
+      ++i;
+    }).use(function (err, input, output, next) {
+      error = err;
+      ++i;
+      next();
+    }).use(function (err, input, output, next) {
+      ++i;
+    }).handle({}, {});
+    expect(i).toEqual(3);
+    expect(error.message).toEqual('foo');
   });
 });
