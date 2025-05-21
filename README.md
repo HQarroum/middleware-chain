@@ -45,13 +45,13 @@ import Chain from 'middleware-chain-js';
 #### Common JS
 
 ```javascript
-const gravatar = require('middleware-chain-js');
+const Chain = require('middleware-chain-js');
 ```
 
 #### Browser (ESM)
 
 ```javascript
-import gravatar from 'https://unpkg.com/middleware-chain-js/dist/index.esm.js'
+import Chain from 'https://unpkg.com/middleware-chain-js/dist/index.esm.js'
 ```
 
 #### Browser (UMD)
