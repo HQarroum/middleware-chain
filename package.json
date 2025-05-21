@@ -40,9 +40,7 @@
   "bugs": {
     "url": "https://github.com/HQarroum/middleware-chain/issues"
   },
-  "dependencies": {
-    "lodash": "^4.17.21"
-  },
+  "dependencies": {},
   "devDependencies": {
     "cross-env": "^7.0.3",
     "eslint": "^8.13.0",

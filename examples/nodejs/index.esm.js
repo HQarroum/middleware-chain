@@ -14,7 +14,7 @@ chain.use([
     console.log('Handler 2');
     next();
   }, 1000),
-  (input, output, next) => {
+  (input, _output, _next) => {
     console.log(`Handler 3 : ${input.foo}`);
   }
 ]);
